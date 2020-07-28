@@ -54,10 +54,12 @@
         <honeycombVersion>1.1.0</honeycombVersion>
         <prometheusVersion>0.7.0</prometheusVersion>
         <zabbixVersion>0.0.2</zabbixVersion>
+        <zabbixSenderVersion>0.0.4</zabbixSenderVersion>
         <httpTestserverVersion>1.4</httpTestserverVersion>
         <elasticsearchVersion>2.2.0</elasticsearchVersion>
         <logbackVersion>1.2.3</logbackVersion>
         <weftVersion>1.16</weftVersion>
+        <jacksonVersion>2.10.1</jacksonVersion>
     </properties>
 
     <dependencyManagement>
@@ -125,6 +127,17 @@
             </dependency>
 
             <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jacksonVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jacksonVersion}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.commonjava.util</groupId>
                 <artifactId>http-testserver</artifactId>
                 <version>${httpTestserverVersion}</version>
@@ -145,6 +158,17 @@
                 <groupId>org.commonjava.cdi.util</groupId>
                 <artifactId>weft</artifactId>
                 <version>${weftVersion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.hengyunabc</groupId>
+                <artifactId>zabbix-sender</artifactId>
+                <version>${zabbixSenderVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.hengyunabc</groupId>
+                <artifactId>zabbix-api</artifactId>
+                <version>${zabbixVersion}</version>
             </dependency>
 
             <dependency>

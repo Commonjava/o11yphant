@@ -26,9 +26,11 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -40,6 +42,7 @@ import static org.commonjava.o11yphant.metrics.RequestContextConstants.REQUEST_P
 import static org.commonjava.o11yphant.metrics.RequestContextHelper.getContext;
 import static org.commonjava.o11yphant.metrics.util.NameUtils.name;
 
+@Alternative
 @ApplicationScoped
 public class DefaultHoneycombManager
                 extends HoneycombManager
@@ -67,6 +70,17 @@ public class DefaultHoneycombManager
         {
             rootSpanFieldsInstance.forEach( instance -> rootSpanFieldsList.add( instance ) );
         }
+    }
+
+    public DefaultHoneycombManager( HoneycombConfiguration honeycombConfiguration,
+                                    DefaultTraceSampler defaultTraceSampler )
+    {
+        super( honeycombConfiguration, defaultTraceSampler );
+    }
+
+    public void addSpanFields ( List<RootSpanFields> fields )
+    {
+        this.rootSpanFieldsList = fields;
     }
 
     @PostConstruct

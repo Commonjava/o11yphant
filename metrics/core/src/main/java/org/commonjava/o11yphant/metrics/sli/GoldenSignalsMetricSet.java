@@ -65,4 +65,8 @@ public abstract class GoldenSignalsMetricSet
         functionMetrics.forEach( ( key, value ) -> checks.put( "sli.golden." + key, value.getHealthCheck() ) );
         return checks;
     }
+
+    public Map<String, GoldenSignalsFunctionMetrics> getFunctionMetrics() {
+        return functionMetrics;
+    }
 }

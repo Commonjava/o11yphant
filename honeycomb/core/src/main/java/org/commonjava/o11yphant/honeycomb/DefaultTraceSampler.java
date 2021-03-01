@@ -43,6 +43,13 @@ public class DefaultTraceSampler
     @Inject
     private HoneycombConfiguration configuration;
 
+    public DefaultTraceSampler(){}
+
+    public DefaultTraceSampler( TrafficClassifier classifier, HoneycombConfiguration configuration ) {
+        this.classifier = classifier;
+        this.configuration = configuration;
+    }
+
     /**
      * Decides whether to sample the input.
      * If it returns 0, it should not be sampled.

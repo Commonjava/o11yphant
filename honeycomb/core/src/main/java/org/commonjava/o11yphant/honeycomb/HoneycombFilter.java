@@ -18,6 +18,7 @@ package org.commonjava.o11yphant.honeycomb;
 import io.honeycomb.beeline.tracing.Span;
 import io.honeycomb.libhoney.shaded.org.apache.http.impl.EnglishReasonPhraseCatalog;
 import org.commonjava.o11yphant.honeycomb.config.HoneycombConfiguration;
+import org.commonjava.o11yphant.honeycomb.util.HeaderMetricConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -68,6 +69,7 @@ public class HoneycombFilter
             if ( rootSpan != null )
             {
                 rootSpan.addField( "path_info", hsr.getPathInfo() );
+                addHeaderFields( hsr );
             }
 
             chain.doFilter( request, response );
@@ -115,6 +117,15 @@ public class HoneycombFilter
             }
         }
         return sb.toString();
+    }
+
+    private void addHeaderFields( HttpServletRequest request )
+    {
+        for ( String header : HeaderMetricConstants.HEADERS )
+        {
+            String value = request.getHeader( header );
+            honeycombManager.addSpanField( header, value == null ? "NOOP" : value );
+        }
     }
 
     @Override

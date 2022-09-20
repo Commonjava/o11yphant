@@ -35,6 +35,10 @@ public interface TracerConfiguration
                     new HashSet<>( Arrays.asList( CONTENT_TRACKING_ID, HTTP_METHOD, HTTP_STATUS, CLIENT_ADDR,
                                                   PATH, PACKAGE_TYPE, REST_ENDPOINT_PATH, REQUEST_LATENCY_MILLIS ) ) );
 
+    default boolean isThreadSpanEnabled(){
+        return true;
+    }
+
     boolean isEnabled();
 
     boolean isConsoleTransport();

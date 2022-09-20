@@ -62,7 +62,7 @@ public class TraceThreadContextualizer<T extends TracerType>
     @Override
     public Object extractCurrentContext()
     {
-        if ( configuration.isEnabled() )
+        if ( configuration.isEnabled() && configuration.isThreadSpanEnabled())
         {
             Optional<SpanAdapter> activeSpan = traceManager.getActiveSpan();
             ThreadedTraceContext ctx = new ThreadedTraceContext( activeSpan );
@@ -75,7 +75,7 @@ public class TraceThreadContextualizer<T extends TracerType>
     @Override
     public void setChildContext( final Object parentContext )
     {
-        if ( configuration.isEnabled() )
+        if ( configuration.isEnabled() && configuration.isThreadSpanEnabled())
         {
             tracingContext.reinitThreadSpans();
             ThreadedTraceContext parentSpanContext = (ThreadedTraceContext) parentContext;
@@ -102,7 +102,7 @@ public class TraceThreadContextualizer<T extends TracerType>
     @SuppressWarnings( "PMD" )
     public void clearContext()
     {
-        if ( configuration.isEnabled() )
+        if ( configuration.isEnabled() && configuration.isThreadSpanEnabled())
         {
             Optional<SpanAdapter> span = SPAN.get();
             if ( span.isPresent() )

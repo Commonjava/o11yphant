@@ -57,16 +57,23 @@
     <prometheusVersion>0.16.0</prometheusVersion>
     <undertowVersion>2.2.38.Final</undertowVersion>
     <agroalVersion>1.16</agroalVersion>
-    <datastaxVersion>3.11.5</datastaxVersion>
+    <cassandraVersion>3.12.1</cassandraVersion>
     <jhttpcVersion>1.16</jhttpcVersion>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <!-- Managing vulnerable versions of netty from cassandra to avoid CVE -->
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-handler</artifactId>
+        <version>4.1.118.Final</version>
+      </dependency>
+
       <dependency>
         <groupId>org.commonjava.boms</groupId>
         <artifactId>web-commons-bom</artifactId>
-        <version>30</version>
+        <version>31</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -196,9 +203,19 @@
       </dependency>
 
       <dependency>
-        <groupId>com.datastax.cassandra</groupId>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-handler</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.cassandra</groupId>
         <artifactId>cassandra-driver-core</artifactId>
-        <version>${datastaxVersion}</version>
+        <version>${cassandraVersion}</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>io.netty</groupId>
+                  <artifactId>netty-handler</artifactId>
+              </exclusion>
+          </exclusions>
       </dependency>
 
       <dependency>

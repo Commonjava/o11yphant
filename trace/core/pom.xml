@@ -31,6 +31,14 @@
 
   <dependencies>
     <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-handler</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.commonjava.util</groupId>
       <artifactId>o11yphant-trace-api</artifactId>
     </dependency>
@@ -47,7 +55,7 @@
       <artifactId>agroal-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.datastax.cassandra</groupId>
+      <groupId>org.apache.cassandra</groupId>
       <artifactId>cassandra-driver-core</artifactId>
     </dependency>
   </dependencies>

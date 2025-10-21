@@ -11,4 +11,6 @@
 
   <artifactId>o11yphant-common</artifactId>
 
+  <name>o11yphant :: Common</name>
+
 </project>

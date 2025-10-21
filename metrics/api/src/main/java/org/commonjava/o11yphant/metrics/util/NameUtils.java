@@ -17,7 +17,7 @@ package org.commonjava.o11yphant.metrics.util;
 
 import org.commonjava.o11yphant.metrics.MetricsConstants;
 
-import static org.apache.commons.lang.StringUtils.isBlank;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 public class NameUtils
 {

@@ -15,7 +15,7 @@
  */
 package org.commonjava.o11yphant.trace.impl;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.commonjava.o11yphant.trace.TracerConfiguration;
 import org.commonjava.o11yphant.trace.spi.SpanFieldsInjector;
 import org.commonjava.o11yphant.trace.spi.adapter.SpanAdapter;

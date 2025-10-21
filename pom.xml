@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.commonjava</groupId>
     <artifactId>commonjava</artifactId>
-    <version>18</version>
+    <version>21</version>
   </parent>
 
   <groupId>org.commonjava.util</groupId>
@@ -53,22 +53,27 @@
     <javaVersion>11</javaVersion>
     <test-forkCount>1</test-forkCount>
     <metricsVersion>4.2.21</metricsVersion>
-    <otelVersion>1.19.0</otelVersion>
+    <otelVersion>1.32.0</otelVersion>
     <prometheusVersion>0.16.0</prometheusVersion>
-    <logbackVersion>1.2.12</logbackVersion>
-    <undertowVersion>2.2.28.Final</undertowVersion>
+    <undertowVersion>2.2.38.Final</undertowVersion>
     <agroalVersion>1.16</agroalVersion>
-    <datastaxVersion>3.11.5</datastaxVersion>
-    <httpclientVersion>4.5.13</httpclientVersion>
-    <jhttpcVersion>1.12</jhttpcVersion>
+    <cassandraVersion>3.12.1</cassandraVersion>
+    <jhttpcVersion>1.16</jhttpcVersion>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <!-- Managing vulnerable versions of netty from cassandra to avoid CVE -->
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-handler</artifactId>
+        <version>4.1.118.Final</version>
+      </dependency>
+
       <dependency>
         <groupId>org.commonjava.boms</groupId>
         <artifactId>web-commons-bom</artifactId>
-        <version>29</version>
+        <version>31</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -186,17 +191,6 @@
       </dependency>
 
       <dependency>
-        <groupId>ch.qos.logback</groupId>
-        <artifactId>logback-classic</artifactId>
-        <version>${logbackVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>ch.qos.logback</groupId>
-        <artifactId>logback-core</artifactId>
-        <version>${logbackVersion}</version>
-      </dependency>
-
-      <dependency>
         <groupId>org.commonjava.util</groupId>
         <artifactId>jhttpc</artifactId>
         <version>${jhttpcVersion}</version>
@@ -209,15 +203,19 @@
       </dependency>
 
       <dependency>
-        <groupId>com.datastax.cassandra</groupId>
-        <artifactId>cassandra-driver-core</artifactId>
-        <version>${datastaxVersion}</version>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-handler</artifactId>
       </dependency>
-
       <dependency>
-        <groupId>org.apache.httpcomponents</groupId>
-        <artifactId>httpclient</artifactId>
-        <version>${httpclientVersion}</version>
+        <groupId>org.apache.cassandra</groupId>
+        <artifactId>cassandra-driver-core</artifactId>
+        <version>${cassandraVersion}</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>io.netty</groupId>
+                  <artifactId>netty-handler</artifactId>
+              </exclusion>
+          </exclusions>
       </dependency>
 
       <dependency>
@@ -264,13 +262,8 @@
       <artifactId>commons-io</artifactId>
     </dependency>
     <dependency>
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>3.12.0</version>
     </dependency>
     <dependency>
       <groupId>commons-codec</groupId>

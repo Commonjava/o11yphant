@@ -26,7 +26,7 @@
 
   <groupId>org.commonjava.util</groupId>
   <artifactId>o11yphant</artifactId>
-  <version>1.9.4-SNAPSHOT</version>
+  <version>1.9.2-SNAPSHOT</version>
 
   <packaging>pom</packaging>
   <modules>
@@ -88,58 +88,58 @@
       <dependency>
         <groupId>org.commonjava.util</groupId>
         <artifactId>o11yphant-common</artifactId>
-        <version>1.9.4-SNAPSHOT</version>
+        <version>1.9.2-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.commonjava.util</groupId>
         <artifactId>o11yphant-trace-api</artifactId>
-        <version>1.9.4-SNAPSHOT</version>
+        <version>1.9.2-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.commonjava.util</groupId>
         <artifactId>o11yphant-trace-core</artifactId>
-        <version>1.9.4-SNAPSHOT</version>
+        <version>1.9.2-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.commonjava.util</groupId>
         <artifactId>o11yphant-trace-otel</artifactId>
-        <version>1.9.4-SNAPSHOT</version>
+        <version>1.9.2-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.commonjava.util</groupId>
         <artifactId>o11yphant-trace-helper-servlet</artifactId>
-        <version>1.9.4-SNAPSHOT</version>
+        <version>1.9.2-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.commonjava.util</groupId>
         <artifactId>o11yphant-trace-helper-httpclient</artifactId>
-        <version>1.9.4-SNAPSHOT</version>
+        <version>1.9.2-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.commonjava.util</groupId>
         <artifactId>o11yphant-trace-helper-jhttpc</artifactId>
-        <version>1.9.4-SNAPSHOT</version>
+        <version>1.9.2-SNAPSHOT</version>
       </dependency>
 
       <dependency>
         <groupId>org.commonjava.util</groupId>
         <artifactId>o11yphant-metrics</artifactId>
-        <version>1.9.4-SNAPSHOT</version>
+        <version>1.9.2-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.commonjava.util</groupId>
         <artifactId>o11yphant-metrics-api</artifactId>
-        <version>1.9.4-SNAPSHOT</version>
+        <version>1.9.2-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.commonjava.util</groupId>
         <artifactId>o11yphant-metrics-common</artifactId>
-        <version>1.9.4-SNAPSHOT</version>
+        <version>1.9.2-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.commonjava.util</groupId>
         <artifactId>o11yphant-metrics-core</artifactId>
-        <version>1.9.4-SNAPSHOT</version>
+        <version>1.9.2-SNAPSHOT</version>
       </dependency>
 
       <dependency>

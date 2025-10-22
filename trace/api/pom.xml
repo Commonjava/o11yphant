@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.commonjava.util</groupId>
     <artifactId>o11yphant-trace</artifactId>
-    <version>1.9.4</version>
+    <version>1.9.5-SNAPSHOT</version>
   </parent>
 
   <artifactId>o11yphant-trace-api</artifactId>
